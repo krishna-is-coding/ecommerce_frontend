@@ -1,9 +1,11 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 export const routes: Routes = [
-  { path: 'search/:keyword', component: ProductListComponent },   // ✅ search route
+  { path: 'search/:keyword', component: ProductListComponent },
+  { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'category/:id', component: ProductListComponent },
   { path: 'category', component: ProductListComponent },
   { path: 'products', component: ProductListComponent },

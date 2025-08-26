@@ -26,16 +26,14 @@ searchProducts(keyword: string) {
   );
 }
 
-
-
-
+getProduct(theProductId: number): Observable<Product> {
+  const productUrl = `${this.apiUrl}/${theProductId}`;
+  return this.httpClient.get<Product>(productUrl);
 }
 
-
-
-
-
 // ✅ Correct interface name
+}
+
 interface GetResponse {
   _embedded: {
     products: Product[];

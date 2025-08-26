@@ -19,7 +19,22 @@ export class ProductService {
     return this.httpClient.get<GetResponse>(searchUrl)
                           .pipe(map(response=> response._embedded.products));
 }
+searchProducts(keyword: string) {
+  const searchUrl = `${this.apiUrl}/search/findByNameContaining?name=${keyword}`;
+  return this.httpClient.get<GetResponse>(searchUrl).pipe(
+    map(response => response._embedded.products)
+  );
 }
+
+
+
+
+}
+
+
+
+
+
 // ✅ Correct interface name
 interface GetResponse {
   _embedded: {

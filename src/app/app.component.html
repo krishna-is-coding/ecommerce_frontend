@@ -9,19 +9,8 @@
         <div class="menu-sidebar-content js-scrollbar1">
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar-list">
-                    <li>
-                        <a routerLink="category/1" routerLinkActive="active-link">Laptops</a>
-                    </li>
-                    <li>
-                        <a routerLink="category/2" routerLinkActive="active-link">Mobiles</a>
-                    </li>
-                    <li>
-                        <a routerLink="category/3" routerLinkActive="active-link">Shirts</a>
-                    </li>
-                    <li>
-                        <a routerLink="category/4" routerLinkActive="active-link">Beauty</a>
-                    </li>
-
+                    <!-- ✅ Dynamic categories -->
+                    <app-product-category></app-product-category>
                 </ul>
             </nav>
         </div>
@@ -33,17 +22,15 @@
             <div class="section-content section-content-p30">
                 <div class="container-fluid">
                     <div class="header-wrap">
-                        <form class="form-header" onsubmit="return false;" method="GET">
-                            <input class="au-input au-input-xl" type="text" name="search"
-                                placeholder="Search for data ..." />
-                            <button class="au-btn-submit" type="submit">
-                                Search
-                            </button>
-                        </form>
+
+                        <!-- ✅ Angular dynamic search bar -->
+                        <app-search-product></app-search-product>
+
+
                         <div class="cart-area d-n">
                             <a href="shopping-detail.html">
-                                <div class="total">19.22 <span> 2</span> </div> <i class="fa fa-shopping-cart"
-                                    aria-hidden="true"></i>
+                                <div class="total">19.22 <span> 2</span> </div>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -51,6 +38,7 @@
                 </div>
             </div>
         </header>
+
         <!-- END HEADER DESKTOP-->
         <!-- MAIN CONTENT-->
         <!-- <app-product-list></app-product-list> -->

@@ -1,0 +1,14 @@
+<div class="search-bar d-flex">
+  <input
+    type="text"
+    [(ngModel)]="searchKeyword"
+    (ngModelChange)="onSearchChange($event)"
+    placeholder="Search products..."
+    class="form-control me-2"
+  />
+  <button (click)="onSearch()" class="btn btn-primary">
+    Search
+  </button>
+</div>
+
+

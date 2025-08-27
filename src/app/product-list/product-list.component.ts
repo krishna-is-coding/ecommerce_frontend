@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 import { Product } from '../common/product';
-import { FormsModule } from '@angular/forms';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -16,11 +17,12 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
   currentCategoryId: number = 1;
-  searchMode: boolean = false;   // ✅ flag to check if search is active
+  searchMode: boolean = false;
 
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
@@ -43,7 +45,6 @@ export class ProductListComponent implements OnInit {
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
 
     if (hasCategoryId) {
-      // get category id and convert it into number type
       this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;
     } else {
       this.currentCategoryId = 1;
@@ -61,4 +62,11 @@ export class ProductListComponent implements OnInit {
       this.products = data;
     });
   }
+
+  // ✅ Add to Cart
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    console.log(`Added to cart: ${product.name} - ${product.unitPrice}`);
+  }
 }
+

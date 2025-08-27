@@ -2,9 +2,11 @@
 import { Routes } from '@angular/router';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
 
 export const routes: Routes = [
   { path: 'search/:keyword', component: ProductListComponent },
+  {path: 'cart', component: CartPageComponent},
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'category/:id', component: ProductListComponent },
   { path: 'category', component: ProductListComponent },
@@ -12,4 +14,3 @@ export const routes: Routes = [
   { path: '', redirectTo: '/products', pathMatch: 'full' },
   { path: '**', redirectTo: '/products', pathMatch: 'full' },
 ];
-
